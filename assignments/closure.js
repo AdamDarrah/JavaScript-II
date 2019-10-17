@@ -4,6 +4,35 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+
+
+var pass = 4;
+
+var addTo = function (){
+  var inner = 2;
+  return pass + inner;
+};
+
+console.log(addTo());
+
+//uses the variable outside the function(global scope)
+
+var multnums = function(pass){
+
+  var multiply = function(inside){
+    return pass * inside;
+  };
+
+  return multiply;
+};
+
+var multiplyThree = new multnums(3);
+var multiplyFour = new multnums(4);
+
+console.log(multiplyThree(3));
+console.log(multiplyFour(4));
+
+
 //function within a function
 
 
